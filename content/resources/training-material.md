@@ -94,8 +94,81 @@ sections:
 
 
         
-
+          <div class="pid-card" data-type="Guidance Document" data-provider="DataCite DOI" data-domain="general audience" data-lang="en">
+            <h3>📘 <a href="https://doi.org/10.5281/zenodo.17535689" target="_blank">Metadata Examples for Instrument PIDs: Guidance Document</a></h3>
+            <p class="pid-description">The purpose of this document is to provide detailed, human-readable guidance on how to map metadata collected for research instruments to the metadata required for registering a persistent identifier (PID) for instruments.</p>
+            <div class="pid-types-badges">
+              <span class="pid-type-badge">DataCite DOI</span>
+              <span class="pid-type-badge">PIDInst</span>
+              <span class="pid-type-badge">B2Inst</span>
+              <span class="pid-type-badge">ePIC handle</span>
+            </div>
+            <div class="pid-details" hidden>
+              <dl class="pid-metadata">
+                <dt>Authors:</dt>
+                <dd>Edmunds, Rorie; Springer, Frederik; Böhm, Jana</dd>
+                <dt>Type:</dt>
+                <dd>Instrument</dd>
+                <dt>Learning Resource Type:</dt>
+                <dd>tutorials</dd>
+                <dt>Proficiency Level:</dt>
+                <dd>competent, proficient, expert</dd>
+                <dt>Duration:</dt>
+                <dd>46 pages</dd>
+                <dt>Publication Date:</dt>
+                <dd>2025-02-10</dd>
+                <dt>License:</dt>
+                <dd>CC-BY-SA-4.0</dd>
+                <dt>Keywords:</dt>
+                <dd>guidance, research instruments, metadata mapping</dd>
+                <dt>Learning Outcomes:</dt>
+                <dd>Understand the metadata requirements for registering instrument PIDs across different PID systems (PIDInst, B2Inst, ePIC handle). Learn how to map existing instrument metadata to standardized PID metadata schemas. Apply practical metadata mapping techniques using real-world examples. Develop competency in preparing research instruments for PID registration. Recognize best practices for instrument metadata quality and completeness.</dd>
+              </dl>
+            </div>
+            <div class="pid-actions">
+              <button class="pid-toggle-details" onclick="toggleDetails(this)">Show details ↓</button>
+              <a href="https://doi.org/10.5281/zenodo.17535689" class="pid-btn-open" target="_blank" rel="noopener">Open resource ↗</a>
+            </div>
+          </div>
           
+          <div class="pid-card" data-type="Interactive Tool" data-provider="DataCite DOI" data-domain="general audience" data-lang="en">
+            <h3>🛠️ <a href="https://dhvlab.gwi.uni-muenchen.de/datacite-generator/" target="_blank">DataCite Metadata Generator</a></h3>
+            <p class="pid-description">Practical open-source web tool for generating DataCite-compliant XML metadata files. Updated to support DataCite Metadata Schema version 4.6 (Kernel 4.6). Features include direct links to the DataCite Best Practice Guide, ability to import existing XML files for updates, and improved user-friendliness with contextual help texts.</p>
+            <div class="pid-types-badges">
+              <span class="pid-type-badge">DataCite DOI</span>
+            </div>
+            <div class="pid-details" hidden>
+              <dl class="pid-metadata">
+                <dt>Organisation:</dt>
+                <dd>Digital Humanities Virtual Laboratory (DHVLab), LMU Munich</dd>
+                <dt>Type:</dt>
+                <dd>Web Tool</dd>
+                <dt>Learning Resource Type:</dt>
+                <dd>interactive tool</dd>
+                <dt>Proficiency Level:</dt>
+                <dd>advanced beginner, competent, proficient</dd>
+                <dt>Target Group:</dt>
+                <dd>data stewards, repository managers, researchers, research data managers</dd>
+                <dt>Schema Version:</dt>
+                <dd>DataCite Metadata Schema 4.6 (Kernel 4.6)</dd>
+                <dt>License:</dt>
+                <dd>Open Source</dd>
+                <dt>Keywords:</dt>
+                <dd>DataCite, metadata generator, DOI, XML generation, interactive tool, research data management, web tool</dd>
+                <dt>Related Publication:</dt>
+                <dd><a href="https://doi.org/10.5281/zenodo.3559799" target="_blank">https://doi.org/10.5281/zenodo.3559799</a></dd>
+                <dt>Learning Outcomes:</dt>
+                <dd>Create DataCite-compliant metadata records following current schema standards. Generate valid XML files ready for DOI registration via DataCite. Understand DataCite metadata fields, their purposes, and requirements. Apply practical metadata creation skills using an interactive web interface. Import and update existing metadata records for iterative refinement. Utilize contextual help and best practice guidance during metadata creation.</dd>
+              </dl>
+            </div>
+            <div class="pid-actions">
+              <button class="pid-toggle-details" onclick="toggleDetails(this)">Show details ↓</button>
+              <a href="https://dhvlab.gwi.uni-muenchen.de/datacite-generator/" class="pid-btn-open" target="_blank" rel="noopener">Open resource ↗</a>
+            </div>
+          </div> 
+
+
+
           <div class="pid-card" data-type="Guide" data-provider="DOI" data-domain="general audience" data-lang="en">
             <h3>📘 <a href="https://doi.org/10.5281/zenodo.4574566" target="_blank">PIDs 101: A Beginners' Guide to Persistent Identifiers</a></h3>
             <p class="pid-description">Whether you are new to the world of persistent identifiers or just in need of a basic PID refresher, this introductory session is for you! We’ll explain what a persistent identifier is, what they can </p>
