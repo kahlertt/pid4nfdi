@@ -63,10 +63,10 @@ projects:
 
 ## PID4NFDI Community workshop on IGSN Use Cases
 
-**Date**: June 04, 2026
-**Time**: 10:00 AM to 1:00 PM (CEST)
-**Location**: Online via Zoom (Please register to receive access information, see below.)
-**Language** English 
+**Date**: June 04, 2026  
+**Time**: 10:00 AM to 1:00 PM (CEST)  
+**Location**: Online via Zoom (Please register to receive access information, see below.)  
+**Language**: English   
 
 ---
 
@@ -104,8 +104,10 @@ Although this workshop focuses on use cases from the NFDI consortia, we warmly i
 | 12:10 | Wrap-up of Breakout Session | Plenary, moderated by PID4NFDI - Paul |
 | 12:15 | Discussion on future formats for structured exchange (Input from Gary Hsu (Deutsches Bergbau-Museum Bochum)) | Plenary, moderated by PID4NFDI - Torsten |
 | 12:55 | Recap & Farewell | PID4NFDI - Antonia |
+  
 
-*Please note that the program is subject to change.*
+*Please note that the program is subject to change.*  
+
 ---
 
 ## Registration
