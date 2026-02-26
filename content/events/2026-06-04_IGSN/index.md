@@ -26,7 +26,7 @@ all_day: false
 # Schedule page publish date (NOT talk date).
 publishDate: '2026-02-26T00:00:00Z'
 
-tags: ["IGSN"] ["workshop] ["community"] ["physical objects"] ["samples"]
+tags: ["IGSN", "workshop", "community", "physical objects", "samples"]
 
 # Show author bio?
 profile: false
@@ -38,7 +38,7 @@ share: false
 featured: false
 
 image:
-  caption: 'Image credit: [PID4NFDI]
+  caption: 'Image credit: [PID4NFDI]'
   focal_point: Right
 
 url_code: ''
@@ -65,7 +65,7 @@ projects:
 
 **Date**: June 04, 2026
 **Time**: 10:00 AM to 1:00 PM (CEST)
-**Location**: Online via Zoom ((Please register to receive access information, see below.)
+**Location**: Online via Zoom (Please register to receive access information, see below.)
 **Language** English 
 
 ---
