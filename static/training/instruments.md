@@ -16,9 +16,7 @@ link:     https://creativecommons.org/licenses/by/4.0/
 
 ---
 
-Welcome to this training module on **Persistent Identifiers (PIDs) for research
-instruments**. It is designed specifically for **repository managers** working
-within or connected to the German National Research Data Infrastructure (NFDI).
+Welcome to this training module on **Persistent Identifiers (PIDs) for research instruments**. It is designed specifically for **repository managers** working within or connected to the German National Research Data Infrastructure (NFDI).
 
 As a repository manager, you sit at a critical junction: you are not typically
 the person *registering* instrument PIDs, but your repository's infrastructure
@@ -31,7 +29,7 @@ By the end of this module you will be able to:
 - Describe what good instrument metadata looks like and why it matters
 - Understand how instruments should be linked to datasets, publications, and other entities
 - Identify the **three concrete actions** repository managers must take to support instrument PIDs
-- Apply lessons from a real-world implementation (Helmholtz-Zentrum Berlin)
+- Apply lessons from two contrasting real-world implementations (Helmholtz-Zentrum Berlin and the Sensor Management System)
 
 > ⏱️ **Estimated time:** 10–15 minutes
 
@@ -43,10 +41,7 @@ A **Persistent Identifier (PID) for an instrument** is a globally unique and
 enduring reference assigned to an individual scientific device — a specific
 sensor, microscope, telescope, beamline, or similar physical instrument.
 
-> 💡 **Key distinction:** An instrument PID identifies an **individual physical
-> device**, not a model type or product category. The specific mass
-> spectrometer in Lab 3, Room 204 gets a PID. The brand and model it belongs
-> to does not.
+> 💡 **Key distinction:** An instrument PID identifies an **individual physical device**, not a model type or product category. The specific mass spectrometer in Lab 3, Room 204 gets a PID. The brand and model it belongs to does not.
 
 ### Why do instruments need PIDs?
 
@@ -436,7 +431,124 @@ discoverability significantly.
 
 ---
 
-## 8. Final Assessment ✅
+## 8. Real-World Example: The Sensor Management System (SMS)
+
+While HZB represents a centralized, facility-scale approach using DataCite DOIs,
+the **Sensor Management System (SMS)** represents the opposite end of the
+spectrum: a decentralized, community-driven approach using B2INST ePIC PIDs
+at large scale. Together, the two cases bracket the full range of implementation
+strategies you are likely to encounter.
+
+### What the SMS is
+
+The SMS is an open-source platform for managing sensors, measurement setups,
+and campaigns, developed collaboratively by four Helmholtz Centers: GFZ, KIT,
+UFZ, and FZJ. It is the entry point for a broader digital ecosystem for FAIR
+time-series data in the Earth System Sciences, where sensor data flows from the
+SMS through time.IO (storage/visualization) and SaQC (automated quality control).
+
+PID registration is built directly into the SMS workflow: when a user creates a
+new device record, they can optionally trigger ePIC PID registration via B2INST
+with a single action — essentially ticking a box. Metadata is then **automatically
+synchronized** between the SMS and B2INST whenever a record is updated.
+
+**Example PID:** [21.11157/86e53e2e-eb5c-44ab-852d-2d0c2313572c](http://hdl.handle.net/21.11157/86e53e2e-eb5c-44ab-852d-2d0c2313572c) —
+the ADCP QLiner 2, an acoustic doppler current profiler managed at GFZ.
+
+### Scale and adoption
+
+As of November 2025, the Helmholtz RF Earth and Environment community in
+B2INST has **1,777 registered instruments** — around 80% of all instruments
+in B2INST. Roughly half of all SMS devices have a PID, with the decision left
+to the individuals responsible for each instrument. Devices range from simple
+data loggers and thermometers to lidar systems, weather stations, and
+disdrometers.
+
+### Why B2INST rather than DataCite?
+
+The four Helmholtz Centers chose B2INST because it fully implements the PIDINST
+metadata schema, including dedicated fields for instrument type, model name,
+and measured variables — fields that DataCite's generic schema does not provide
+directly. B2INST also aligns with the European EOSC ecosystem, which matters
+for infrastructures with international scope.
+
+### Key lessons for repository managers
+
+**1. Low barriers enable scale — but require compensating quality measures**
+
+The SMS deliberately keeps the number of mandatory metadata fields low to
+encourage broad adoption. The tradeoff is that metadata completeness varies
+across instances. The compensating mechanism is the **controlled vocabulary
+server** shared by all Helmholtz Centers, which harmonizes key fields like
+manufacturer name and instrument type using community-curated terminology.
+This is the structural quality control replacing manual curation.
+
+**2. Automated sync eliminates the maintenance burden**
+
+Once a researcher creates an SMS device record, any subsequent edits are
+automatically pushed to B2INST — no separate update workflow needed. This
+is a key design principle: reduce the practical cost of keeping PID metadata
+current. For repository managers, this is a model worth considering: if your
+repository can integrate with a PID registration service at the API level,
+automatic metadata forwarding reduces both human error and staff burden.
+
+**3. The self-service model requires good user support infrastructure**
+
+Because anyone at the participating Helmholtz Centers can register instruments
+themselves, the SMS invests heavily in user support: a comprehensive Wiki with
+tutorial videos, FAQs, and best-practice examples; community meetings; and
+GitLab issue tracking for vocabulary curation decisions. Without this
+infrastructure, self-service quickly leads to inconsistent metadata.
+
+**4. Controlled vocabulary is essential for interoperability**
+
+The SMS uses controlled vocabulary identifiers for manufacturer names and
+instrument types, and references the SeaVoX Device Catalogue for instrument
+type terms. This enables machine-readable aggregation and comparison across
+institutions — something free-text fields cannot support. Measured variables
+are currently the one gap: PIDINST does not yet support a controlled vocabulary
+identifier field for them, so they are stored as free text in B2INST.
+
+**5. Related identifiers are the next frontier**
+
+One current limitation of the SMS implementation is that **related identifiers
+are not yet used** — meaning instruments are not yet linked to the datasets
+they generate or to other instruments (e.g., a sensor linked to its data logger).
+This is explicitly identified as a future improvement area. From a repository
+manager perspective, this reinforces the point: the dataset → instrument link
+via `relationType="IsCollectedBy"` is something *your* repository can and should
+support, even when the instrument registrant has not yet built it from their side.
+
+**6. AI-readiness as an emerging motivation**
+
+The SMS explicitly frames its PIDINST-aligned metadata, controlled vocabulary
+identifiers, and fully supported JSON APIs as enabling **AI-ready data pipelines**
+— where software agents can discover, interpret, and reuse instrument context
+without manual intervention. This is a forward-looking argument for investing
+in structured instrument metadata now.
+
+### Side-by-side comparison
+
+| | HZB / BESSY II | SMS / NFDI4Earth |
+|---|---|---|
+| **PID system** | DataCite DOIs | B2INST ePIC PIDs |
+| **Registration model** | Centralized (one person) | Decentralized self-service |
+| **Scale** | ~24 instruments | ~1,777 instruments |
+| **Automation** | Manual API-based | Automated sync with SMS |
+| **Metadata quality control** | Manual draft-and-review | Shared controlled vocabulary |
+| **Related identifiers** | Instrument papers linked | Not yet implemented |
+| **Best suited for** | Large unique infrastructure | Distributed sensor networks |
+
+> 💡 **Take-away for repository managers:** Neither model is universally
+> better. The right approach depends on your institution's scale, governance
+> structure, and the type of instruments involved. What both models confirm
+> is that the **dataset → instrument link** must be supported from the
+> repository side — because neither HZB nor the SMS solves this automatically
+> for datasets deposited in external repositories.
+
+---
+
+## 9. Final Assessment ✅
 
 **Question 1**
 
@@ -493,6 +605,16 @@ of a repository manager regarding instrument PIDs?
 
 **Question 6**
 
+The SMS (Sensor Management System) and HZB represent two contrasting
+implementation approaches. Which statement best captures the key difference?
+
+    [( )] HZB uses B2INST while SMS uses DataCite — the choice of PID provider is the main distinction.
+    [( )] SMS registers more instruments because it is a larger facility; the workflows are otherwise identical.
+    [(X)] HZB uses centralized registration with manual metadata curation, while SMS uses a decentralized self-service model with automated sync and controlled vocabulary for quality control.
+    [( )] SMS does not currently support instrument PIDs — it is planned for a future version.
+
+**Question 7**
+
 A researcher wants to link a sample that was analyzed using an instrument.
 They ask whether they should link the sample directly to the instrument PID.
 What is the correct recommendation?
@@ -504,7 +626,7 @@ What is the correct recommendation?
 
 ---
 
-## 9. Summary and Your Action List
+## 10. Summary and Your Action List
 
 You have completed the module. Here is a condensed summary and a practical
 checklist to take back to your work.
@@ -551,6 +673,8 @@ Direct sample-to-instrument linking is not recommended.
 - **Linking guidance document:** https://doi.org/10.5281/zenodo.17535290
 - **Metadata examples document:** https://doi.org/10.5281/zenodo.17535689
 - **HZB use case:** https://pid.services.base4nfdi.de/community/use-cases/instruments-at-hzb/
+- **SMS use case:** https://doi.org/10.5281/zenodo.17733707
+- **Sensor Management System (SMS):** https://sensors.gfz.de
 - **PIDINST Metadata Schema:** https://doi.org/10.15497/RDA00070
 - **Contact PID4NFDI:** pid4nfdi@lists.nfdi.de
 
